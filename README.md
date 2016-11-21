@@ -13,3 +13,8 @@ TODO:
     traceroute implementation if time)
 
   Step 4: Create a visual display after execution of the program.
+  
+  LINKS:
+  1. The Algorithm: https://www.cs.cornell.edu/boom/1999sp/projects/network%20topology/topology.html#Basic-algo
+  2. The SCAPY library (Custom ICMP packets, custom ping, etc): http://www.secdev.org/projects/scapy/doc/usage.html
+  3. The SNMP library (Only for optimizations, do after DNS): http://pysnmp.sourceforge.net/
