@@ -47,4 +47,4 @@ def getIPData(interface):
     return (ip, netmask, netAddr, prefix)
     
 
-print getIPData(ROBBY_VM)
+print getIPData(PHYSICAL)
