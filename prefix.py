@@ -14,13 +14,35 @@ import socket
 import netifaces as ni
 
 PHYSICAL = 'en0'
+ROBBY_VM = 'eno16777736'
 
-def getIPData():
+def iptoint(ip):
+    return int(socket.inet_aton(ip).encode('hex'),16)
+
+def inttoip(ip):
+    return socket.inet_ntoa(hex(ip)[2:].decode('hex'))
+
+# Gets the interface information for the given interface.
+# Returns a tuple in the following format: (ipAddr, netmask, netAddr, prefixLen)
+def getIPData(interface):
     interfaces = ni.interfaces()
-    if PHYSICAL not in interfaces:
+    if interface not in interfaces:
         return None
     
-    print ni.ifaddresses(PHYSICAL)
+    addrInfo = ni.ifaddresses(interface)[ni.AF_INET][0]
+    ip = addrInfo['addr']
+    netmask = addrInfo['netmask']
+    netAddr = inttoip(iptoint(ip) & iptoint(netmask))
+    netMaskInt = iptoint(netmask)
+    count = 0;
+    lsb = netMaskInt & 1
+    while (lsb == 0):
+        count += 1
+        netMaskInt = netMaskInt >> 1
+        lsb = netMaskInt & 1
+    prefix = 32 - count
+
+    return (ip, netmask, netAddr, prefix)
     
 
-print ni.interfaces()
+print getIPData(ROBBY_VM)
