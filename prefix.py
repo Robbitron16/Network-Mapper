@@ -3,12 +3,13 @@
 
 '''
 Steps:
-1. Get the IP Address
-2. Get Subnet mask
-3. Calculate Network Address
-4. Get the prefix length
-5. Ping all addresses in the address space, do a reverse DNS look-up for the ones that respond.
-6. Validate the ones we found by using traceroute (ie. every node in the path should either be in the address space or a router.)
+1. Get the IP Address - DONE
+2. Get Subnet mask - DONE
+3. Calculate Network Address - DONE
+4. Get the prefix length - DONE
+5. Ping all addresses in the address space
+6. Do a reverse DNS look-up for the ones that respond.
+7. (HARD) Validate the ones we found by using traceroute (ie. every node in the path should either be in the address space or a router.)
 '''
 import socket
 import netifaces as ni
