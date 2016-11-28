@@ -14,12 +14,14 @@ Steps:
 '''
 import socket
 import netifaces as ni
+from scapy.all import *
 
 PHYSICAL = 'en0'
 ROBBY_VM = 'eno16777736'
+ANIR_VM = 'ens33'
 
 def iptoint(ip):
-    return int(socket.inet_aton(ip).encode('hex'),16)
+    return int(socket.inet_aton(ip).encode('hex'), 16)
 
 def inttoip(ip):
     return socket.inet_ntoa(hex(ip)[2:].decode('hex'))
@@ -35,16 +37,28 @@ def getIPData(interface):
     ip = addrInfo['addr']
     netmask = addrInfo['netmask']
     netAddr = inttoip(iptoint(ip) & iptoint(netmask))
+    prefixLen = getPrefixLength(netmask)
+    return (ip, netmask, netAddr, prefixLen)
+    
+# Gets the prefix length of an IPv4 address form its subnet mask
+def getPrefixLength(netmask):
     netMaskInt = iptoint(netmask)
-    count = 0;
+    count = 0
     lsb = netMaskInt & 1
     while (lsb == 0):
         count += 1
         netMaskInt = netMaskInt >> 1
         lsb = netMaskInt & 1
     prefix = 32 - count
+    return prefix
 
-    return (ip, netmask, netAddr, prefix)
-    
+def pingAddressSpace(netAddr):
+     ans,unans = sr(IP(dst=netAddr + ".*")/ICMP())
+     print ans.summary()
 
-print getIPData(ROBBY_VM)
+def test():
+    ip, netmask, netAddr, prefixLen = getIPData(ANIR_VM)
+    pingAddressSpace(netAddr)
+
+print getIPData(ANIR_VM)
+print test()
