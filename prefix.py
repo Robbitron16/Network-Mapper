@@ -16,7 +16,8 @@ import socket
 import netifaces as ni
 from scapy.all import *
 
-PHYSICAL = 'en0'
+PHYSICAL1 = 'en0'
+PHYSICAL2 = 'em1'
 ROBBY_VM = 'eno16777736'
 ANIR_VM = 'ens33'
 
@@ -52,13 +53,23 @@ def getPrefixLength(netmask):
     prefix = 32 - count
     return prefix
 
-def pingAddressSpace(netAddr):
-     ans,unans = sr(IP(dst=netAddr + ".*")/ICMP())
-     print ans.summary()
+def pingAddressSpace(netAddr, prefixLen):
+  suffixLen = 1 << (32 - prefixLen)
+  ipInt = iptoint(netAddr)
+  TIMEOUT = 2
+  for i in range(1, suffixLen - 1):
+    ipAddr = inttoip(ipInt + i)
+    print ipAddr
+    packet = IP(dst = ipAddr)/ICMP()
+    reply = sr1(packet, timeout=TIMEOUT)
+    if not (reply is None):
+      print ipAddr, "is online"
+    else:
+      print "Timed out on", ipAddr
+  
+def test(interface):
+    ip, netmask, netAddr, prefixLen = getIPData(interface)
+    pingAddressSpace(netAddr, prefixLen)
 
-def test():
-    ip, netmask, netAddr, prefixLen = getIPData(ANIR_VM)
-    pingAddressSpace(netAddr)
-
-print getIPData(ANIR_VM)
-print test()
+print getIPData(PHYSICAL2)
+print test(PHYSICAL2)
