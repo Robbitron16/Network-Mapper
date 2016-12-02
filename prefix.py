@@ -57,15 +57,16 @@ def pingAddressSpace(netAddr, prefixLen):
   suffixLen = 1 << (32 - prefixLen)
   ipInt = iptoint(netAddr)
   TIMEOUT = 2
-  for i in range(1, suffixLen - 1):
-    ipAddr = inttoip(ipInt + i)
-    print ipAddr
-    packet = IP(dst = ipAddr)/ICMP()
-    reply = sr1(packet, timeout=TIMEOUT)
-    if not (reply is None):
-      print ipAddr, "is online"
-    else:
-      print "Timed out on", ipAddr
+  print arping(netAddr + "/" + str(prefixLen))
+#   for i in range(1, suffixLen - 1):
+#     ipAddr = inttoip(ipInt + i)
+#     print ipAddr
+#     packet = IP(dst = ipAddr)/ICMP()
+#     reply = sr1(packet, timeout=TIMEOUT)
+#     if not (reply is None):
+#       print ipAddr, "is online"
+#     else:
+#       print "Timed out on", ipAddr
   
 def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)

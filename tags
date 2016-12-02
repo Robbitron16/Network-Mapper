@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ANIR_VM	prefix.py	/^ANIR_VM = 'ens33'$/;"	kind:variable	line:22
+PHYSICAL1	prefix.py	/^PHYSICAL1 = 'en0'$/;"	kind:variable	line:19
+PHYSICAL2	prefix.py	/^PHYSICAL2 = 'em1'$/;"	kind:variable	line:20
+ROBBY_VM	prefix.py	/^ROBBY_VM = 'eno16777736'$/;"	kind:variable	line:21
+getIPData	prefix.py	/^def getIPData(interface):$/;"	kind:function	line:32
+getPrefixLength	prefix.py	/^def getPrefixLength(netmask):$/;"	kind:function	line:45
+inttoip	prefix.py	/^def inttoip(ip):$/;"	kind:function	line:27
+iptoint	prefix.py	/^def iptoint(ip):$/;"	kind:function	line:24
+ni	prefix.py	/^import netifaces as ni$/;"	kind:namespace	line:16
+pingAddressSpace	prefix.py	/^def pingAddressSpace(netAddr, prefixLen):$/;"	kind:function	line:56
+prefix.py	prefix.py	1;"	kind:file	line:1
+socket	prefix.py	/^import socket$/;"	kind:namespace	line:15
+test	prefix.py	/^def test(interface):$/;"	kind:function	line:71
