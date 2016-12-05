@@ -13,16 +13,18 @@ Steps:
 7. (HARD) Validate the ones we found by using traceroute (ie. every node in the path should either be in the address space or a router.)
 '''
 import socket
+import codecs
 import netifaces as ni
+from scapy.all import *
 
 PHYSICAL = 'en0'
 ROBBY_VM = 'eno16777736'
 
 def iptoint(ip):
-    return int(socket.inet_aton(ip).encode('hex'),16)
+    return int(codecs.encode(socket.inet_aton(ip), 'hex'), 16)
 
 def inttoip(ip):
-    return socket.inet_ntoa(hex(ip)[2:].decode('hex'))
+    return socket.inet_ntoa(codecs.decode(hex(ip)[2:].zfill(8), 'hex'))
 
 # Gets the interface information for the given interface.
 # Returns a tuple in the following format: (ipAddr, netmask, netAddr, prefixLen)
@@ -45,6 +47,25 @@ def getIPData(interface):
     prefix = 32 - count
 
     return (ip, netmask, netAddr, prefix)
-    
 
-print getIPData(PHYSICAL)
+def pingAddressSpace(netAddr, prefixLen):
+  suffixLen = 1 << (32 - prefixLen)
+  ipInt = iptoint(netAddr)
+  TIMEOUT = 1
+  print(arping(netAddr + "/" + str(prefixLen)))
+  print ("ICMP ping:")
+  for i in range(0, suffixLen):
+    ipAddr = inttoip(ipInt + i)
+    packet = IP(dst = ipAddr)/ICMP()
+    reply = sr1(packet, timeout=TIMEOUT, verbose=0)
+    if reply is not None:
+      print (ipAddr, "ONLINE")
+    else:
+      print (ipAddr, "TIMEOUT")
+  
+def test(interface):
+    ip, netmask, netAddr, prefixLen = getIPData(interface)
+    pingAddressSpace(netAddr, prefixLen)
+
+print (getIPData(PHYSICAL))
+test(PHYSICAL)
