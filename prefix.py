@@ -54,19 +54,26 @@ def getPrefixLength(netmask):
     return prefix
 
 def pingAddressSpace(netAddr, prefixLen):
-  suffixLen = 1 << (32 - prefixLen)
-  ipInt = iptoint(netAddr)
-  TIMEOUT = 1
-  print arping(netAddr + "/" + str(prefixLen))
-  print "ICMP ping:"
-  for i in range(0, suffixLen):
-    ipAddr = inttoip(ipInt + i)
-    packet = IP(dst = ipAddr)/ICMP()
-    reply = sr1(packet, timeout=TIMEOUT, verbose=0)
-    if reply is not None:
-      print ipAddr, "ONLINE"
-    else:
-      print ipAddr, "TIMEOUT"
+    suffixLen = 1 << (32 - prefixLen)
+    ipInt = iptoint(netAddr)
+    TIMEOUT = 1
+    # print arping(netAddr + "/" + str(prefixLen))
+    ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=netAddr + "/" + str(prefixLen)), timeout=0.5)
+    # print type(ans)
+    print type(ans.res)
+    print len(ans.res)
+    print "ICMP ping:"
+    upHosts = []
+    # for i in range(0, suffixLen):
+    #     ipAddr = inttoip(ipInt + i)
+    #     packet = IP(dst = ipAddr)/ICMP()
+    #     reply = sr1(packet, timeout=TIMEOUT, verbose=0)
+    #     if reply is not None:
+    #         print ipAddr, "ONLINE"
+    #         upHosts.append(ipAddr)
+    #     else:
+    #         print ipAddr, "TIMEOUT"
+    # print "Online hosts: ", upHosts
   
 def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
