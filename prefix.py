@@ -53,15 +53,18 @@ def getIPData(interface):
 def pingAddressSpace(netAddr, prefixLen):
     suffixLen = 1 << (32 - prefixLen)
     ipInt = iptoint(netAddr)
-    TIMEOUT = 1
+    activeHosts = []
     for result in arping(netAddr + "/" + str(prefixLen))[0].res:
-        print (result[0].pdst)
+        activeIp = result[0].pdst
+        activeHosts.append(activeIp)
         try:
-            print (socket.gethostbyaddr(result[0].pdst))
+            print (socket.gethostbyaddr(activeIp))
         except socket.error as serr:
-            print ("Could not find hostname for: " + result[0].pdst + ", error: " + str(serr))
+            print ("Could not find hostname for: " + activeIp + ", error: " + str(serr))
         print ()
+    print (activeHosts)
     '''
+    TIMEOUT = 1
     print ("ICMP ping:")
     for i in range(0, suffixLen):
         ipAddr = inttoip(ipInt + i)
