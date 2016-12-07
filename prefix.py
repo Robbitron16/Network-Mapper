@@ -54,7 +54,13 @@ def pingAddressSpace(netAddr, prefixLen):
     suffixLen = 1 << (32 - prefixLen)
     ipInt = iptoint(netAddr)
     TIMEOUT = 1
-    print(type(arping(netAddr + "/" + str(prefixLen))))
+    for result in arping(netAddr + "/" + str(prefixLen))[0].res:
+        print (result[0].pdst)
+        try:
+            print (socket.gethostbyaddr(result[0].pdst))
+        except socket.error as serr:
+            print ("Could not find hostname for: " + result[0].pdst + ", error: " + str(serr))
+        print ()
     '''
     print ("ICMP ping:")
     for i in range(0, suffixLen):
