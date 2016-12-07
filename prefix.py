@@ -32,6 +32,8 @@ def inttoip(ip):
 # Returns a tuple in the following format: (ipAddr, netmask, netAddr, prefixLen)
 def getIPData(interface):
     interfaces = ni.interfaces()
+    # Prints the default gateway.
+    print (ni.gateways()['default'][ni.AF_INET])
     if interface not in interfaces:
         return None
 
@@ -54,13 +56,22 @@ def pingAddressSpace(netAddr, prefixLen):
     suffixLen = 1 << (32 - prefixLen)
     ipInt = iptoint(netAddr)
     TIMEOUT = 1
+    # Print out the active nodes.
     for result in arping(netAddr + "/" + str(prefixLen))[0].res:
+        # Print the IP of the active node.
         print (result[0].pdst)
         try:
+            # Print the hostname of the node.
+            # If this fails, print out the error.
+            # This also means it's probably a router/router cluster
+            # (ie. for UW Network, the .100, .102, .103 suffixes are routers
+            # that belong to the gateway address, so they're a cluster of routers)
             print (socket.gethostbyaddr(result[0].pdst))
         except socket.error as serr:
             print ("Could not find hostname for: " + result[0].pdst + ", error: " + str(serr))
         print ()
+    # Use this when we figure out how to get subnet masks.
+    # Or use arping.
     '''
     print ("ICMP ping:")
     for i in range(0, suffixLen):
