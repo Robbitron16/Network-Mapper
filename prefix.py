@@ -72,5 +72,5 @@ def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
     pingAddressSpace(netAddr, prefixLen)
 
-print (getIPData(PHYSICAL))
-test(PHYSICAL)
+print (getIPData(ANIR_VM))
+test(ANIR_VM)
