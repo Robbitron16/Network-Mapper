@@ -14,6 +14,7 @@ Steps:
 '''
 import socket
 import netifaces as ni
+import codecs
 from scapy.all import *
 
 PHYSICAL1 = 'en0'
@@ -33,7 +34,7 @@ def getIPData(interface):
     interfaces = ni.interfaces()
     if interface not in interfaces:
         return None
-    
+
     addrInfo = ni.ifaddresses(interface)[ni.AF_INET][0]
     ip = addrInfo['addr']
     netmask = addrInfo['netmask']
@@ -50,14 +51,11 @@ def getIPData(interface):
     return (ip, netmask, netAddr, prefix)
 
 def pingAddressSpace(netAddr, prefixLen):
-    ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=netAddr + "/" + str(prefixLen)), timeout=0.5)
-    print type(ans.res)
-    print len(ans.res)
-    print "ICMP ping:"
     suffixLen = 1 << (32 - prefixLen)
     ipInt = iptoint(netAddr)
     TIMEOUT = 1
-    print(arping(netAddr + "/" + str(prefixLen)))
+    print(type(arping(netAddr + "/" + str(prefixLen))))
+    '''
     print ("ICMP ping:")
     for i in range(0, suffixLen):
         ipAddr = inttoip(ipInt + i)
@@ -67,10 +65,11 @@ def pingAddressSpace(netAddr, prefixLen):
             print (ipAddr, "ONLINE")
         else:
             print (ipAddr, "TIMEOUT")
-  
+    '''
+
 def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
     pingAddressSpace(netAddr, prefixLen)
 
-print (getIPData(ANIR_VM))
-test(ANIR_VM)
+print (getIPData(PHYSICAL1))
+test(PHYSICAL1)
