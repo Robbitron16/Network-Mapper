@@ -14,6 +14,7 @@ Steps:
 '''
 import socket
 import netifaces as ni
+import codecs
 from scapy.all import *
 
 PHYSICAL1 = 'en0'
@@ -33,7 +34,7 @@ def getIPData(interface):
     interfaces = ni.interfaces()
     if interface not in interfaces:
         return None
-    
+
     addrInfo = ni.ifaddresses(interface)[ni.AF_INET][0]
     ip = addrInfo['addr']
     netmask = addrInfo['netmask']
@@ -50,23 +51,25 @@ def getIPData(interface):
     return (ip, netmask, netAddr, prefix)
 
 def pingAddressSpace(netAddr, prefixLen):
-  suffixLen = 1 << (32 - prefixLen)
-  ipInt = iptoint(netAddr)
-  TIMEOUT = 1
-  print(arping(netAddr + "/" + str(prefixLen)))
-  print ("ICMP ping:")
-  for i in range(0, suffixLen):
-    ipAddr = inttoip(ipInt + i)
-    packet = IP(dst = ipAddr)/ICMP()
-    reply = sr1(packet, timeout=TIMEOUT, verbose=0)
-    if reply is not None:
-      print (ipAddr, "ONLINE")
-    else:
-      print (ipAddr, "TIMEOUT")
-  
+    suffixLen = 1 << (32 - prefixLen)
+    ipInt = iptoint(netAddr)
+    TIMEOUT = 1
+    print(type(arping(netAddr + "/" + str(prefixLen))))
+    '''
+    print ("ICMP ping:")
+    for i in range(0, suffixLen):
+        ipAddr = inttoip(ipInt + i)
+        packet = IP(dst = ipAddr)/ICMP()
+        reply = sr1(packet, timeout=TIMEOUT, verbose=0)
+        if reply is not None:
+            print (ipAddr, "ONLINE")
+        else:
+            print (ipAddr, "TIMEOUT")
+    '''
+
 def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
     pingAddressSpace(netAddr, prefixLen)
 
-print (getIPData(PHYSICAL))
-test(PHYSICAL)
+print (getIPData(PHYSICAL1))
+test(PHYSICAL1)
