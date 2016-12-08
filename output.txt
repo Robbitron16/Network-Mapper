@@ -1,0 +1,1331 @@
+Robbys-MacBook-Pro-2:Network-Mapper Work$ sudo python3 prefix.py
+Password:
+WARNING: No route found for IPv6 destination :: (no default route?). This affects only IPv6
+Testing 10.0.0.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.1.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.2.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.3.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.4.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.5.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.6.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.7.0
+Begin emission:
+******Finished to send 256 packets.
+*.******
+Received 14 packets, got 13 answers, remaining 243 packets
+  52:54:00:eb:e1:c3 10.0.7.1
+  00:23:4d:db:49:be 10.0.7.71
+  48:5a:b6:83:73:5d 10.0.7.77
+  e4:a4:71:35:1e:a2 10.0.7.141
+  6c:40:08:b9:7f:b8 10.0.7.190
+  fc:c2:de:2d:14:11 10.0.7.84
+  f8:16:54:db:87:e7 10.0.7.168
+  e0:c7:67:b3:3c:79 10.0.7.146
+  fc:c2:de:05:b7:c5 10.0.7.138
+  98:5f:d3:d0:45:86 10.0.7.208
+  88:ad:d2:8a:fc:bf 10.0.7.160
+  78:f8:82:cd:6c:6d 10.0.7.187
+  ec:1f:72:1a:6a:b5 10.0.7.70
+10.0.7.1
+Could not find hostname for: 10.0.7.1, error: [Errno 1] Unknown host
+
+10.0.7.71
+Could not find hostname for: 10.0.7.71, error: [Errno 1] Unknown host
+
+10.0.7.77
+Could not find hostname for: 10.0.7.77, error: [Errno 1] Unknown host
+
+10.0.7.141
+Could not find hostname for: 10.0.7.141, error: [Errno 1] Unknown host
+
+10.0.7.190
+Could not find hostname for: 10.0.7.190, error: [Errno 1] Unknown host
+
+10.0.7.84
+Could not find hostname for: 10.0.7.84, error: [Errno 1] Unknown host
+
+10.0.7.168
+Could not find hostname for: 10.0.7.168, error: [Errno 1] Unknown host
+
+10.0.7.146
+Could not find hostname for: 10.0.7.146, error: [Errno 1] Unknown host
+
+10.0.7.138
+Could not find hostname for: 10.0.7.138, error: [Errno 1] Unknown host
+
+10.0.7.208
+Could not find hostname for: 10.0.7.208, error: [Errno 1] Unknown host
+
+10.0.7.160
+Could not find hostname for: 10.0.7.160, error: [Errno 1] Unknown host
+
+10.0.7.187
+Could not find hostname for: 10.0.7.187, error: [Errno 1] Unknown host
+
+10.0.7.70
+Could not find hostname for: 10.0.7.70, error: [Errno 1] Unknown host
+
+Testing 10.0.8.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.9.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.10.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.11.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.12.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.13.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.14.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.15.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.16.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.17.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.18.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.19.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.20.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.21.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.22.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.23.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.24.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.25.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.26.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.27.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.28.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.29.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.30.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.31.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.32.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.33.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.34.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.35.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.36.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.37.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.38.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.39.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.40.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.41.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.42.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.43.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.44.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.45.0
+Begin emission:
+Finished to send 256 packets.
+.
+Received 1 packets, got 0 answers, remaining 256 packets
+Testing 10.0.46.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.47.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.48.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.49.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.50.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.51.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.52.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.53.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.54.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.55.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.56.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.57.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.58.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.59.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.60.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.61.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.62.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.63.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.64.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.65.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.66.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.67.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.68.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.69.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.70.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.71.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.72.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.73.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.74.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.75.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.76.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.77.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.78.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.79.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.80.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.81.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.82.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.83.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.84.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.85.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.86.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.87.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.88.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.89.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.90.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.91.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.92.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.93.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.94.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.95.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.96.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.97.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.98.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.99.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.100.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.101.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.102.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.103.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.104.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.105.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.106.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.107.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.108.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.109.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.110.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.111.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.112.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.113.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.114.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.115.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.116.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.117.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.118.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.119.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.120.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.121.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.122.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.123.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.124.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.125.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.126.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.127.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.128.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.129.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.130.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.131.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.132.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.133.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.134.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.135.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.136.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.137.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.138.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.139.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.140.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.141.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.142.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.143.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.144.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.145.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.146.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.147.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.148.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.149.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.150.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.151.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.152.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.153.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.154.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.155.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.156.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.157.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.158.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.159.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.160.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.161.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.162.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.163.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.164.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.165.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.166.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.167.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.168.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.169.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.170.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.171.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.172.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.173.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.174.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.175.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.176.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.177.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.178.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.179.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.180.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.181.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.182.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.183.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.184.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.185.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.186.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.187.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.188.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.189.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.190.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.191.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.192.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.193.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.194.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.195.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.196.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.197.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.198.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.199.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.200.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.201.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.202.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.203.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.204.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.205.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.206.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.207.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.208.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.209.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.210.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.211.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.212.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.213.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.214.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.215.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.216.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.217.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.218.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.219.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.220.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.221.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.222.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.223.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.224.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.225.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.226.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.227.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.228.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.229.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.230.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.231.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.232.0
+Begin emission:
+Finished to send 256 packets.
+.
+Received 1 packets, got 0 answers, remaining 256 packets
+Testing 10.0.233.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.234.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.235.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.236.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.237.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.238.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.239.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.240.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.241.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.242.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.243.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.244.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.245.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.246.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.247.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.248.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.249.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.250.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.251.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.252.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.253.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Testing 10.0.254.0
+Begin emission:
+Finished to send 256 packets.
+
+Received 0 packets, got 0 answers, remaining 256 packets
+Robbys-MacBook-Pro-2:Network-Mapper Work$
