@@ -86,7 +86,16 @@ def pingAddressSpace(netAddr, prefixLen):
 
 def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
-    pingAddressSpace(netAddr, prefixLen)
+    #pingAddressSpace(netAddr, prefixLen)
+    pingBroadcast(netAddr, prefixLen)
 
-print (getIPData(PHYSICAL1))
+
+def pingBroadcast(netAddr, prefixLen):
+    broadcast = inttoip(iptoint(netAddr) | (2 ** (32 - prefixLen) - 1))
+    print (broadcast)
+    ans, unans= sr(IP(dst = broadcast)/ICMP(), timeout=1)
+    print (ans.summary())
+    print (unans.summary())
+
+#print (getIPData(PHYSICAL1))
 test(PHYSICAL1)
