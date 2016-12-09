@@ -33,7 +33,7 @@ def inttoip(ip):
 def getIPData(interface):
     interfaces = ni.interfaces()
     # Prints the default gateway.
-    print (ni.gateways()['default'][ni.AF_INET])
+    # print (ni.gateways()['default'][ni.AF_INET])
     if interface not in interfaces:
         return None
 
@@ -49,61 +49,46 @@ def getIPData(interface):
         netMaskInt = netMaskInt >> 1
         lsb = netMaskInt & 1
     prefix = 32 - count
-
+    print (ip, netmask, netAddr, prefix)
     return (ip, netmask, netAddr, prefix)
 
-def pingAddressSpace(netAddr, prefixLen):
+def pingAddressSpace(netAddr, prefixLen, activeSubnets):
     suffixLen = 1 << (32 - prefixLen)
     ipInt = iptoint(netAddr)
-    activeHosts = []
-    for result in arping(netAddr + "/" + str(prefixLen))[0].res:
-        activeIp = result[0].pdst
-        activeHosts.append(activeIp)
-        try:
-            print (socket.gethostbyaddr(activeIp))
-    TIMEOUT = 1
+    TIMEOUT = 1.0 / 3.0
+    key = netAddr + "/" + str(prefixLen)
+    activeSubnets[key] = []
     # Print out the active nodes.
     for result in arping(netAddr + "/" + str(prefixLen))[0].res:
         # Print the IP of the active node.
-        print (result[0].pdst)
-        try:
-            # Print the hostname of the node.
-            # If this fails, print out the error.
-            # This also means it's probably a router/router cluster
-            # (ie. for UW Network, the .100, .102, .103 suffixes are routers
-            # that belong to the gateway address, so they're a cluster of routers)
-            print (socket.gethostbyaddr(result[0].pdst))
-        except socket.error as serr:
-            print ("Could not find hostname for: " + activeIp + ", error: " + str(serr))
-        print ()
-    print (activeHosts)
-    # Use this when we figure out how to get subnet masks.
-    # Or use arping.
-    '''
-    TIMEOUT = 1
-    print ("ICMP ping:")
-    for i in range(0, suffixLen):
-        ipAddr = inttoip(ipInt + i)
-        packet = IP(dst = ipAddr)/ICMP()
-        reply = sr1(packet, timeout=TIMEOUT, verbose=0)
-        if reply is not None:
-            print (ipAddr, "ONLINE")
-        else:
-            print (ipAddr, "TIMEOUT")
-    '''
+        activeSubnets[key].append(result[0].pdst)
+        #traceRoute(result[0].pdst)]
+    print (len(activeSubnets[key]))
 
 def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
-    #pingAddressSpace(netAddr, prefixLen)
-    pingBroadcast(netAddr, prefixLen)
+    activeSubnets = {}
+    pingAddressSpace(netAddr, prefixLen, activeSubnets)
+    for subnet, activeHosts in activeSubnets.items():
+        for host in activeHosts:
+            res = icmpPing(host, 1, "ICMP")
+            if res is not None:
+                print (host, res.summary())
+            else:
+                print (host, "did not respond")
+
+def tcpScan(ipAddr):
+    ip = IP(dst=ipAddr)
+    for i in range(1, 65536):
+        tcpSyn = TCP(dport=i, flags="S", seq=i)
+        synAck = sr1(ip/tcpSyn)
+        print (synAck)
 
 
-def pingBroadcast(netAddr, prefixLen):
-    broadcast = inttoip(iptoint(netAddr) | (2 ** (32 - prefixLen) - 1))
-    print (broadcast)
-    ans, unans= sr(IP(dst = broadcast)/ICMP(), timeout=1)
-    print (ans.summary())
-    print (unans.summary())
+def icmpPing(address, TIMEOUT, type):
+    print ("Pinging... ", address)
+    packet = IP(dst=address)/ICMP()
+    reply = sr1(packet, timeout=TIMEOUT, verbose=0)
+    return reply
 
-#print (getIPData(PHYSICAL1))
 test(PHYSICAL1)
