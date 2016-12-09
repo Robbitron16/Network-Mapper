@@ -22,6 +22,9 @@ PHYSICAL2 = 'em1'
 ROBBY_VM = 'eno16777736'
 ANIR_VM = 'ens33'
 
+SYNACK = 0x12
+RSTACK  = 0x14
+
 def iptoint(ip):
     return int(codecs.encode(socket.inet_aton(ip), 'hex'), 16)
 
@@ -79,11 +82,25 @@ def test(interface):
 
 def tcpScan(ipAddr):
     ip = IP(dst=ipAddr)
+    #tcpSyn = TCP(dport=5000, flags="S", seq=10000)
+    #synAck = sr1(ip/tcpSyn, verbose=0)
+    #print (synAck.seq)
+    #print (synAck.ack)
     for i in range(1, 65536):
-        tcpSyn = TCP(dport=i, flags="S", seq=i)
-        synAck = sr1(ip/tcpSyn)
-        print (synAck)
+        if i == 21:
+            continue
+        print (str(i) + " " + str(scanPort(ip, i)))
+        # print ("Seq received for port " + str(i) + " " + str( synAck.seq))
+        # print (synAck.summary())
 
+def scanPort(ip, i):
+    tcpSyn = TCP(dport=i, flags="S", seq=i)
+    synAck = sr1(ip/tcpSyn, verbose=0)
+    pktFlags = synAck.getlayer(TCP).flags
+    if pktFlags == SYNACK:
+        return True
+    else:
+        return False
 
 def icmpPing(address, TIMEOUT, type):
     print ("Pinging... ", address)
@@ -91,4 +108,5 @@ def icmpPing(address, TIMEOUT, type):
     reply = sr1(packet, timeout=TIMEOUT, verbose=0)
     return reply
 
-test(PHYSICAL1)
+tcpScan("10.0.7.157")
+# test(PHYSICAL1)
