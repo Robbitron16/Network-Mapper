@@ -84,6 +84,9 @@ def tcpScan(ipAddr):
         synAck = sr1(ip/tcpSyn)
         print (synAck)
 
+def testTcpPort(ip, port):
+    tcpSyn = TCP(dport=port, flags="S", seq=i)
+
 
 def icmpPing(address, TIMEOUT, type):
     print ("Pinging... ", address)
