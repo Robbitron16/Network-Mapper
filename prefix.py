@@ -16,6 +16,7 @@ import socket
 import netifaces as ni
 import codecs
 from scapy.all import *
+from timeout import timeout
 
 PHYSICAL1 = 'en0'
 PHYSICAL2 = 'em1'
@@ -81,7 +82,6 @@ def test(interface):
                 print (host, "did not respond")
 
 def tcpScan(ipAddr):
-    ip = IP(dst=ipAddr)
     #tcpSyn = TCP(dport=5000, flags="S", seq=10000)
     #synAck = sr1(ip/tcpSyn, verbose=0)
     #print (synAck.seq)
@@ -89,11 +89,13 @@ def tcpScan(ipAddr):
     for i in range(1, 65536):
         if i == 21:
             continue
-        print (str(i) + " " + str(scanPort(ip, i)))
+        print (str(i) + " " + str(scanPort(ipAddr, i)))
         # print ("Seq received for port " + str(i) + " " + str( synAck.seq))
         # print (synAck.summary())
 
-def scanPort(ip, i):
+@timeout(5)
+def scanPort(ipAddr, i):
+    ip = IP(dst=ipAddr)
     tcpSyn = TCP(dport=i, flags="S", seq=i)
     synAck = sr1(ip/tcpSyn, verbose=0)
     pktFlags = synAck.getlayer(TCP).flags
