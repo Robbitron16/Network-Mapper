@@ -12,10 +12,11 @@ Steps:
 6. Do a reverse DNS look-up for the ones that respond.
 7. (HARD) Validate the ones we found by using traceroute (ie. every node in the path should either be in the address space or a router.)
 '''
-import socket
+import socket as so
 import netifaces as ni
 import codecs
 from scapy.all import *
+from timeout import timeout
 
 PHYSICAL1 = 'en0'
 PHYSICAL2 = 'em1'
@@ -80,21 +81,18 @@ def test(interface):
             else:
                 print (host, "did not respond")
 
-def tcpScan(ipAddr):
-    ip = IP(dst=ipAddr)
-    tcpSyn = TCP(dport=5000, flags="S", seq=10000)
-    print ("sending packet")
-    synAck = sr1(ip/tcpScan)
-    print (synAck.seq)
-    print (synAck.ack)
-    # for i in range(1, 65536):
-    #     if i == 21:
-    #         continue
-    #     print (str(i) + " " + str(scanPort(ip, i)))
-        # print ("Seq received for port " + str(i) + " " + str( synAck.seq))
-        # print (synAck.summary())
 
-def scanPort(ip, i):
+def tcpScan(ipAddr):
+    openPorts = []
+    for i in range(1200, 2400):
+        portOpen = tcpConnectScanPort(ipAddr, i)
+        if portOpen:
+            openPorts.append(i)
+    return openPorts
+
+@timeout(5)
+def tcpSynScanPort(ipAddr, i):
+    ip = IP(dst=ipAddr)
     tcpSyn = TCP(dport=i, flags="S", seq=i)
     synAck = sr1(ip/tcpSyn, verbose=0)
     pktFlags = synAck.getlayer(TCP).flags
@@ -103,11 +101,23 @@ def scanPort(ip, i):
     else:
         return False
 
+def tcpConnectScanPort(ipAddr, port):
+    tcpSocket = so.socket(so.AF_INET, so.SOCK_STREAM)
+    hostIp = so.gethostbyname(ipAddr)
+    res = tcpSocket.connect_ex((hostIp, port))
+    tcpSocket.close()
+    if res == 0:
+        return True
+    else:
+        return False
+    
+
 def icmpPing(address, TIMEOUT, type):
     print ("Pinging... ", address)
     packet = IP(dst=address)/ICMP()
     reply = sr1(packet, timeout=TIMEOUT, verbose=0)
     return reply
 
-tcpScan("10.0.7.157")
+print (tcpScan("10.0.7.58"))
 # test(PHYSICAL1)
+
