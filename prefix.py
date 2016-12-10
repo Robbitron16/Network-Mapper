@@ -83,4 +83,5 @@ def icmpPing(address, TIMEOUT, type):
     reply = sr1(packet, timeout=TIMEOUT, verbose=0)
     return reply
 
-test(PHYSICAL1)
+#test(PHYSICAL1)
+pingAddressSpace("173.250.128.0", 17, {})
