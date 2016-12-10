@@ -1,6 +1,8 @@
 import socket
 
 class Host:
+    MIN_PORT = 1025
+    MAX_PORT = 5000
     def __init__(self, ipAddr, prefixLen, subnetMask):
         self.ipAddr = ipAddr
         self.prefixLen = prefixLen
@@ -19,7 +21,8 @@ class Host:
 
     def getOpenTcpPorts(self):
         openPorts = []
-        for i in range(1, 65536):
+        print ("Scanning for open ports on " + self.ipAddr)
+        for i in range(self.MIN_PORT, self.MAX_PORT):
             portOpen = self.tcpConnectScanPort(self.ipAddr, i)
             if portOpen:
                 openPorts.append(i)
