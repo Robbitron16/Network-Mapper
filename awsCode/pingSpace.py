@@ -1,29 +1,44 @@
-import socket, os, sys, time
+
+import time
 from joblib import Parallel, delayed
 import multiprocessing
 import util
+import networkx as nx
+import matplotlib.pyplot as plt
 
-def pingSubnet(subnet):
+FILENAME = "results.txt"
+
+def pingSubnet(subnet, file, graph):
     mask, prefix = subnet.split('/')
-    mask = mask[:-1]
-    prefixLen = int(prefix)
-    addresses = 2 ** (32 - prefixLen)
-    print "Scanning %s..." % (mask + str(0))
+    prefixlen = int(prefix)
+    addresses = 2 ** (32 - prefixlen)
+    mask = util.iptoint(mask)
+    mask = bin(mask)
+    mask = mask[:-prefixlen]
+    mask = mask + ('0' * prefixlen)
+    mask = int(mask[2:], 2)
+    print "Scanning %s..." % (util.inttoip(mask) + str(0))
+    file.write("Scanning %s...\n" % (util.inttoip(mask) + str(0)))
     for i in range(0, addresses):
-        address = mask + str(i)
+        address = util.inttoip(mask + i)
         if util.ping(address):
-            print "Tracing %s" % address
-            print
-            util.traceroute(address)
+            file.write("Tracing %s\n" % address)
+            util.traceroute(address, file, graph)
 
-start = time.time()
-pingSubnet("192.26.136.0/24")
-end = time.time()
-print "%d total seconds" % (end - start)
-
+OUT = open(FILENAME, 'w')
+VISUAL = nx.Graph()
+print "Started..."
+START = time.time()
+pingSubnet("198.48.64.0/19", OUT, VISUAL)
+END = time.time()
+OUT.write("%d total seconds\n" % (END - START))
+print "Finished..."
+OUT.close()
+nx.draw(VISUAL)
+plt.show()
 # Average runtime for 24 prefix len is 772 secs.
 
-
+# Parallel Code
 '''
 subnets = open(sys.argv[1])
 num_cores = multiprocessing.cpu_count()
