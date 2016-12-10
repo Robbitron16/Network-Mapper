@@ -21,6 +21,8 @@ pingSubnet("192.26.136.0/24")
 end = time.time()
 print "%d total seconds" % (end - start)
 
+# Average runtime for 24 prefix len is 772 secs.
+
 
 '''
 subnets = open(sys.argv[1])
