@@ -12,15 +12,21 @@ Steps:
 6. Do a reverse DNS look-up for the ones that respond.
 7. (HARD) Validate the ones we found by using traceroute (ie. every node in the path should either be in the address space or a router.)
 '''
-import socket
+import socket as so
 import netifaces as ni
 import codecs
 from scapy.all import *
+from timeout import timeout
+import subnet
+import host
 
 PHYSICAL1 = 'en0'
 PHYSICAL2 = 'em1'
 ROBBY_VM = 'eno16777736'
 ANIR_VM = 'ens33'
+
+SYNACK = 0x12
+RSTACK  = 0x14
 
 def iptoint(ip):
     return int(codecs.encode(socket.inet_aton(ip), 'hex'), 16)
@@ -42,7 +48,7 @@ def getIPData(interface):
     netmask = addrInfo['netmask']
     netAddr = inttoip(iptoint(ip) & iptoint(netmask))
     netMaskInt = iptoint(netmask)
-    count = 0;
+    count = 0
     lsb = netMaskInt & 1
     while (lsb == 0):
         count += 1
@@ -69,13 +75,44 @@ def test(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
     activeSubnets = {}
     pingAddressSpace(netAddr, prefixLen, activeSubnets)
-    for subnet, activeHosts in activeSubnets.items():
-        for host in activeHosts:
-            res = icmpPing(host, 1, "ICMP")
-            if res is not None:
-                print (host, res.summary())
-            else:
-                print (host, "did not respond")
+    # for subnet, activeHosts in activeSubnets.items():
+    #     for host in activeHosts:
+    #         res = icmpPing(host, 1, "ICMP")
+    #         if res is not None:
+    #             print (host, res.summary())
+    #         else:
+    #             print (host, "did not respond")
+
+
+def tcpScan(ipAddr):
+    openPorts = []
+    for i in range(1200, 2400):
+        portOpen = tcpConnectScanPort(ipAddr, i)
+        if portOpen:
+            openPorts.append(i)
+    return openPorts
+
+@timeout(5)
+def tcpSynScanPort(ipAddr, i):
+    ip = IP(dst=ipAddr)
+    tcpSyn = TCP(dport=i, flags="S", seq=i)
+    synAck = sr1(ip/tcpSyn, verbose=0)
+    pktFlags = synAck.getlayer(TCP).flags
+    if pktFlags == SYNACK:
+        return True
+    else:
+        return False
+
+def tcpConnectScanPort(ipAddr, port):
+    tcpSocket = so.socket(so.AF_INET, so.SOCK_STREAM)
+    hostIp = so.gethostbyname(ipAddr)
+    res = tcpSocket.connect_ex((hostIp, port))
+    tcpSocket.close()
+    if res == 0:
+        return True
+    else:
+        return False
+
 
 def icmpPing(address, TIMEOUT, type):
     print ("Pinging... ", address)
@@ -85,3 +122,16 @@ def icmpPing(address, TIMEOUT, type):
 
 #test(PHYSICAL1)
 pingAddressSpace("173.250.128.0", 17, {})
+def test2(interface):
+    ip, netmask, netAddr, prefixLen = getIPData(interface)
+    mySubnet = subnet.Subnet(netAddr, prefixLen, netmask, None)
+    mySubnet.getActiveHosts()
+    for host in mySubnet.activeHosts:
+        host.getOpenTcpPorts()
+        if host.openTcpPorts is not None:
+            print (host.ipAddr + " has ports " + str(host.openTcpPorts) + " open")
+
+# print (tcpScan("10.0.7.58"))
+# test(ANIR_VM)
+
+test2(ANIR_VM)
