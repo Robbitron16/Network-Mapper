@@ -21,3 +21,10 @@ class Subnet:
             activeHost = host.Host(ipAddr, self.prefixLen, self.subnetMask)
             activeHosts.append(activeHost)
         self.activeHosts = activeHosts
+
+    def fingerprintActiveHosts(self):
+        for host in self.activeHosts:
+            if not host.potentialOS:
+                host.getOSInfo()
+            if not host.actualOS:
+                host.nmapFingerprint()
