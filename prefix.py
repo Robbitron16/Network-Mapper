@@ -19,6 +19,7 @@ from scapy.all import *
 from timeout import timeout
 import subnet
 import host
+import time
 
 PHYSICAL1 = 'en0'
 PHYSICAL2 = 'em1'
@@ -121,15 +122,17 @@ def icmpPing(address, TIMEOUT, type):
     return reply
 
 #test(PHYSICAL1)
-pingAddressSpace("173.250.128.0", 17, {})
+# pingAddressSpace("173.250.128.0", 17, {})
 def test2(interface):
     ip, netmask, netAddr, prefixLen = getIPData(interface)
     mySubnet = subnet.Subnet(netAddr, prefixLen, netmask, None)
     mySubnet.getActiveHosts()
+    # pdb.set_trace()
     for host in mySubnet.activeHosts:
+        start = time.time()
         host.getOpenTcpPorts()
-        if host.openTcpPorts is not None:
-            print (host.ipAddr + " has ports " + str(host.openTcpPorts) + " open")
+        end = time.time()
+        print (host.ipAddr + " has ports " + str(host.openTcpPorts) + " open [" + str(end - start) + "]")
 
 # print (tcpScan("10.0.7.58"))
 # test(ANIR_VM)
