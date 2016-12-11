@@ -1,4 +1,5 @@
 import socket
+import nmap
 
 class Host:
     MIN_PORT = 1025
@@ -29,3 +30,7 @@ class Host:
         self.openTcpPorts = openPorts
         return openPorts
 
+    def getOSInfo(self):
+        nm = nmap.PortScanner()
+        nm.scan(self.ipAddr, arguments="-O")
+        print(nm[self.ipAddr]['osmatch'][0]['name'])
