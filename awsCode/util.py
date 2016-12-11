@@ -1,29 +1,33 @@
 import socket, os
 
-def traceroute(dest_name, timeout=3.0, portno=33434, max_hops=64):
+def traceroute(dest_name, file, graph, timeout=3.0, portno=33434, max_hops=64):
     dest_addr = socket.gethostbyname(dest_name)
     icmp = socket.getprotobyname('icmp')
     udp = socket.getprotobyname('udp')
     ttl = 1
+    last_addr = socket.gethostbyname("localhost")
     curr_addr = None
     curr_name = None
     while True:
         # Send the packet for hop ttl.
         curr_addr = processPacket(icmp, udp, ttl, portno, timeout, dest_name)
         if curr_addr == "timeout":
-            print "Timed out"
+            file.write("Timed out\n")
             break
-        try:
-            curr_name = socket.gethostbyaddr(curr_addr)[0]
-        except socket.error:
-            curr_name = curr_addr
+        elif curr_addr is not None:
+            try:
+                curr_name = socket.gethostbyaddr(curr_addr)[0]
+            except socket.error:
+                curr_name = curr_addr
 
         # Check the results
         if curr_addr is not None:
+            graph.add_edge(last_addr, curr_addr)
             curr_host = curr_name + " " + curr_addr
+            last_addr = curr_addr
         else:
             curr_host = "*"
-        print str(ttl) + "\t" + curr_host
+        file.write(str(ttl) + "\t" + curr_host + "\n")
 
         ttl += 1
         # End if necessary, we've reached our destination or too many hops
@@ -35,11 +39,11 @@ def processPacket(icmp, udp, ttl, portno, timeout, dest):
     send_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, udp)
     send_socket.setsockopt(socket.SOL_IP, socket.IP_TTL, ttl)
     recv_socket.bind(("", portno))
-    send_socket.sendto("", (dest_name, portno))
+    send_socket.sendto("", (dest, portno))
     curr_addr = None
     recv_socket.settimeout(timeout)
     try:
-        _, curr_addr = recv_socket.recv_from(512)
+        _, curr_addr = recv_socket.recvfrom(512)
         curr_addr = curr_addr[0]
     except socket.timeout:
         return "timeout"

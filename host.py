@@ -2,6 +2,7 @@ import socket
 from joblib import Parallel, delayed
 import threading
 from scapy.all import *
+import nmap
 
 class Host:
     MIN_PORT = 1025
@@ -65,3 +66,8 @@ class Host:
             # portOpen = Host.tcpStealthSynScan(ipAddr, i)
             if portOpen:
                 openTcpPorts.append(i)
+
+    def getOSInfo(self):
+        nm = nmap.PortScanner()
+        nm.scan(self.ipAddr, arguments="-O")
+        print(nm[self.ipAddr]['osmatch'][0]['name'])
