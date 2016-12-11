@@ -1,14 +1,13 @@
 
-import time
-from joblib import Parallel, delayed
-import multiprocessing
-import util
+import threading as th
 import networkx as nx
 import matplotlib.pyplot as plt
+import sys
+import util
 
-FILENAME = "results.txt"
+DIR = "output/"
 
-def pingSubnet(subnet, file, graph):
+def pingSubnet(lock, subnet, graph):
     mask, prefix = subnet.split('/')
     prefixlen = int(prefix)
     addresses = 2 ** (32 - prefixlen)
@@ -17,32 +16,33 @@ def pingSubnet(subnet, file, graph):
     mask = mask[:-(32 - prefixlen)]
     mask = mask + ('0' * (32 - prefixlen))
     mask = int(mask[2:], 2)
-    print "Scanning %s..." % (util.inttoip(mask) + str(0))
-    file.write("Scanning %s...\n" % (util.inttoip(mask) + str(0)))
+    filename = util.inttoip(mask).replace(".", "_")
+    file = open(DIR + filename + ".txt", 'w')
+    print "Scanning %s..." % util.inttoip(mask)
+    file.write("Scanning %s...\n" % util.inttoip(mask))
     for i in range(0, addresses):
         address = util.inttoip(mask + i)
         print "Trying %s..." % address
         if util.ping(address):
             file.write("Tracing %s\n" % address)
-            util.traceroute(address, file, graph)
+            util.traceroute(lock, address, file, graph)
+    file.close()
 
-OUT = open(FILENAME, 'w')
+LOCK = th.Lock()
+SPACES = open(sys.argv[1])
 VISUAL = nx.Graph()
-print "Started..."
-START = time.time()
-pingSubnet("198.48.2.0/24", OUT, VISUAL)
-END = time.time()
-OUT.write("%d total seconds\n" % (END - START))
-print "Finished..."
-OUT.close()
-nx.draw(VISUAL)
-nx.draw_networkx_labels(VISUAL)
+print "Launching pool..."
+POOL = []
+for space in SPACES:
+    thread = th.Thread(target=pingSubnet, args=(LOCK, space, VISUAL))
+    thread.daemon = True
+    POOL.append(thread)
+    thread.start()
+for thread in POOL:
+    thread.join()
+print "Finished the job..."
+nx.draw(VISUAL, with_labels=True)
+figure = plt.gcf()
 plt.show()
-# Average runtime for 24 prefix len is 772 secs.
-
-# Parallel Code
-'''
-subnets = open(sys.argv[1])
-num_cores = multiprocessing.cpu_count()
-results = Parallel(n_jobs=num_cores)(delayed(pingSubnet)(line) for line in subnets)
-'''
+plt.draw()
+figure.savefig(DIR + "test.png", dpi=100)

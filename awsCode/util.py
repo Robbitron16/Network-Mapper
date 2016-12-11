@@ -1,6 +1,8 @@
-import socket, os
 
-def traceroute(dest_name, file, graph, timeout=3.0, portno=33434, max_hops=64):
+import socket
+import os
+
+def traceroute(lock, dest_name, file, graph, timeout=3.0, portno=33434, max_hops=64):
     dest_addr = socket.gethostbyname(dest_name)
     icmp = socket.getprotobyname('icmp')
     udp = socket.getprotobyname('udp')
@@ -22,7 +24,9 @@ def traceroute(dest_name, file, graph, timeout=3.0, portno=33434, max_hops=64):
 
         # Check the results
         if curr_addr is not None:
+            lock.acquire()
             graph.add_edge(last_addr, curr_addr)
+            lock.release()
             curr_host = curr_name + " " + curr_addr
             last_addr = curr_addr
         else:
