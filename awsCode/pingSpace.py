@@ -35,6 +35,7 @@ OUT.write("%d total seconds\n" % (END - START))
 print "Finished..."
 OUT.close()
 nx.draw(VISUAL)
+nx.draw_networkx_labels(VISUAL)
 plt.show()
 # Average runtime for 24 prefix len is 772 secs.
 
