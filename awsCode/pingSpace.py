@@ -14,13 +14,14 @@ def pingSubnet(subnet, file, graph):
     addresses = 2 ** (32 - prefixlen)
     mask = util.iptoint(mask)
     mask = bin(mask)
-    mask = mask[:-prefixlen]
-    mask = mask + ('0' * prefixlen)
+    mask = mask[:-(32 - prefixlen)]
+    mask = mask + ('0' * (32 - prefixlen))
     mask = int(mask[2:], 2)
     print "Scanning %s..." % (util.inttoip(mask) + str(0))
     file.write("Scanning %s...\n" % (util.inttoip(mask) + str(0)))
     for i in range(0, addresses):
         address = util.inttoip(mask + i)
+        print "Trying %s..." % address
         if util.ping(address):
             file.write("Tracing %s\n" % address)
             util.traceroute(address, file, graph)
@@ -29,7 +30,7 @@ OUT = open(FILENAME, 'w')
 VISUAL = nx.Graph()
 print "Started..."
 START = time.time()
-pingSubnet("198.48.64.0/19", OUT, VISUAL)
+pingSubnet("198.48.2.0/24", OUT, VISUAL)
 END = time.time()
 OUT.write("%d total seconds\n" % (END - START))
 print "Finished..."
