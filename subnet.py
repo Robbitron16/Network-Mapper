@@ -16,7 +16,7 @@ class Subnet:
         suffixLen = 1 << (32 - self.prefixLen)
         ipRange = self.netAddr + "/" + str(self.prefixLen)
         activeHosts = []
-        for result in arping(ipRange, verbose = 0)[0].res:
+        for result in arping(ipRange, verbose = 1)[0].res:
             ipAddr = result[0].pdst
             activeHost = host.Host(ipAddr, self.prefixLen, self.subnetMask)
             activeHosts.append(activeHost)
