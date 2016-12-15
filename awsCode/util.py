@@ -2,6 +2,8 @@
 import socket
 import os
 
+SPACES = ["209.124.176.0/21/#F0A3FF", "209.124.184.0/21/#0075DC", "209.124.177.0/24/#993F00", "140.142.0.0/16/#FFFF80", "128.95.0.0/16/#005C31", "128.208.0.0/16/#FFCC99", "198.48.64.0/19/#808080", "205.175.96.0/19/#94FFB5", "108.179.128.0/18/#FF0010", "204.69.8.0/21/#FF5005"]
+
 def traceroute(dest_name, timeout=3.0, portno=33434, max_hops=20):
     dest_addr = socket.gethostbyname(dest_name)
     icmp = socket.getprotobyname('icmp')
@@ -37,8 +39,7 @@ def traceroute(dest_name, timeout=3.0, portno=33434, max_hops=20):
     return path
 
 def isPartOfUW(address):
-    spaces = ["209.124.176.0/21/#CD6155", "209.124.184.0/21/#E74C3C", "209.124.177.0/24/#AF7AC5", "140.142.0.0/16/#8E44AD", "128.95.0.0/16/#7FB3D5", "128.208.0.0/16/#2E86C1", "198.48.64.0/19/#48C9B0", "205.175.96.0/19/#16A085", "69.91.128.0/17/#F4D03F", "173.250.128.0/17/#F39C12", "108.179.128.0/18/#EB984E", "192.26.136.0/24/#AF601A", "204.69.8.0/21/#D35400", "204.69.15.0/24/#5D6D7E"]
-    for space in spaces:
+    for space in SPACES:
         if isPartOfSpace(address, space.split('/')[0], int(space.split('/')[1])):
             return (True, space.split('/')[2])
     return (False, None)
