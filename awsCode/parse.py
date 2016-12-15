@@ -80,9 +80,10 @@ if len(GRAPH.nodes()) > 0:
 
 #0.05, 50, 5, 0.1 SMALL (Everything else but 108.179)
 #0.75, 100, 3, 0.05 BIG (108.179)
-#10, 1, 500, 3, 0.1 YUUGE (SubClassB, ClassB)
-mypos = nx.spring_layout(GRAPH,k=1,iterations=500)
-nx.draw(GRAPH, pos=mypos, node_color=[getColor(x, DESTS, ROOTS) for x in GRAPH], node_size=[len(GRAPH.neighbors(x)) * 10 for x in GRAPH], labels=LABEL_MAP, font_size=3, width=0.1, with_labels=LABELLED)
+#10, 1, 100, 3, 0.1 YUUGE (SubClassB, ClassB)
+print "Finished parsing"
+mypos = nx.spring_layout(GRAPH,k=1,iterations=100)
+nx.draw(GRAPH, pos=mypos, node_color=[getColor(x, DESTS, ROOTS) for x in GRAPH], node_size=[len(GRAPH.neighbors(x)) * 5 for x in GRAPH], labels=LABEL_MAP, font_size=2, width=0.05, with_labels=LABELLED)
 figure = plt.gcf()
 TITLE = "Network Topology"
 if TARGET_SPACE is not None:
