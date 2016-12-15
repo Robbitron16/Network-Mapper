@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import util
 
 def getColor(the_address, the_destinations, the_roots):
-    if the_address in the_roots:
+    if the_address in the_roots or the_address == MAX:
         return util.isPartOfUW(the_address)[1]
     elif the_address not in the_destinations:
         return util.isPartOfUW(the_address)[1]
@@ -42,17 +42,26 @@ while i < len(LINES):
     ROOTS.add(last_addr)
     path.pop(0)
     for step in path:
+        if step in ROOTS:
+            ROOTS.remove(step)
         GRAPH.add_edge(last_addr, step)
         last_addr = step
     i += 2
 
-for node in GRAPH.nodes():
-    if node in ROOTS:
-        LABEL_MAP[node] = "GATEWAY"
-    elif node not in DESTS:
-        LABEL_MAP[node] = " "
-    elif node not in ROOTS and node in DESTS:
-        LABEL_MAP[node] = node + " "
+if len(GRAPH.nodes()) > 0:
+    MAX = GRAPH.nodes()[0]
+    for node in GRAPH.nodes():
+        if len(GRAPH.neighbors(node)) > len(GRAPH.neighbors(MAX)):
+            MAX = node
+    for node in GRAPH.nodes():
+        if node == MAX:
+            LABEL_MAP[node] = "GATEWAY"
+        elif node not in DESTS or node in ROOTS:
+            LABEL_MAP[node] = " "
+        else:
+            #LABEL_MAP[node] = " "
+            LABEL_MAP[node] = node + " "
+
 #0.05, 50
 #0.75, 100
 mypos = nx.spring_layout(GRAPH,k=0.05,iterations=50)
